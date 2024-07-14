@@ -37,6 +37,7 @@ def handle_click(event, key, click_times, color, Xpos):
         click_times.append(current_time)
         new_rect = pygame.Rect(Xpos, BUTTON_TOP, BUTTON_W, BUTTON_H)
         clones.append((new_rect, color))  
+        
     return click_times
 
 
@@ -82,7 +83,7 @@ def main():
             rect.y -= 5
             pygame.draw.rect(SCREEN, color, rect)
 
-        # Remove rectangles that are off-screen
+        
         clones[:] = [(rect, color) for rect, color in clones if rect.y + BUTTON_H > 0]
 
         pygame.display.flip()
